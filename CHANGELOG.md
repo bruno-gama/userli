@@ -1,4 +1,7 @@
-# 2.1.0 (unreleased)
+# 2.0.3 (2019.03.15)
+
+* Symfony security updates
+* Include `public/bundles` in releases (Fixes: #151)
 
 # 2.0.2 (2019.03.06)
 

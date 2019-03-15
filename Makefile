@@ -34,8 +34,8 @@ prepare:
 	mkdir -p build
 
 release: clean prepare
-	APP_ENV=prod composer install --no-dev --ignore-platform-reqs --no-scripts
-	APP_ENV=prod composer dumpautoload
+	composer install --no-dev --ignore-platform-reqs
+	composer dump-autoload --no-dev
 	yarn --pure-lockfile --no-verbose
 	yarn encore production --no-verbose
 	# Create a release tarball

@@ -56,12 +56,13 @@ if [ "$vagrant" = "yes" ]; then
 	(cd vagrant/;
 	 vagrant up;
 	 vagrant ssh -c 'tempdir="$(mktemp -d)";
-	                 git clone /vagrant "$tempdir";
-			 cd /vagrant && make prepare;
-			 (cd "$tempdir";
-                          make release;
-                          cp -a build/userli* /vagrant/build/);
-                         rm -r "$tempdir"')
+		git clone /vagrant "$tempdir";
+		cd /vagrant && make prepare;
+		(cd "$tempdir";
+			cp .env.dist .env		
+			make release;
+			cp -a build/userli* /vagrant/build/);
+			rm -r "$tempdir"')
 else
     make release
 fi
